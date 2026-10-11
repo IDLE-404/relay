@@ -1,0 +1,50 @@
+.diagram {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  font-family: var(--font-mono);
+}
+
+.relay {
+  fill: var(--color-accent-soft);
+  stroke: var(--color-accent);
+}
+
+.relayText {
+  fill: var(--color-accent);
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.agent {
+  fill: var(--agent-data-soft);
+  stroke: var(--agent-data);
+}
+
+.server {
+  fill: var(--surface-inset);
+  stroke: var(--border-strong);
+}
+
+.text {
+  fill: var(--text);
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.edge {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.2;
+}
+
+.mcp {
+  stroke-dasharray: 4 3;
+}
+
+.mcpLabel {
+  fill: var(--text-muted);
+  font-size: 12px;
+}

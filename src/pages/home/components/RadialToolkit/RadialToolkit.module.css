@@ -1,0 +1,210 @@
+.toolkit {
+  position: relative;
+  width: min(560px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.ring,
+.cone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.outer,
+.inner {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.inner {
+  stroke-dasharray: 3 6;
+}
+
+.stop {
+  stop-color: var(--color-accent);
+}
+
+.cone {
+  transition: transform 0.7s var(--ease);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: var(--surface-card);
+  box-shadow:
+    0 0 0 6px var(--color-accent-soft),
+    0 0 0 7px var(--color-accent),
+    var(--shadow-md);
+  font-size: 13px;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+
+  svg {
+    color: var(--color-accent);
+    font-size: 26px;
+  }
+}
+
+/* Each node sits on the ring: the icon center is at (--x, --y). */
+.node {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  transform: translate(-50%, -22px);
+
+  &:focus-visible {
+    outline: none;
+
+    .icon {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-sm);
+  font-size: 20px;
+  transition: transform 0.3s var(--ease);
+}
+
+.node:hover .icon {
+  transform: translateY(-2px);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  kbd {
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: var(--surface-inset);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 10px;
+  }
+}
+
+.active {
+  .icon {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--text-inverse);
+  }
+
+  .label {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--text-inverse);
+
+    kbd {
+      background: rgba(255, 255, 255, 0.25);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+.more {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  padding: 6px 14px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+/* Mobile: no ring, nodes become a horizontal row of chips. */
+@media (max-width: 767px) {
+  .toolkit {
+    width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .ring,
+  .cone,
+  .center {
+    display: none;
+  }
+
+  .nodes {
+    display: flex;
+    gap: 8px;
+    margin: 0 -16px;
+    padding: 4px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .node,
+  .more {
+    position: static;
+    flex-shrink: 0;
+    transform: none;
+  }
+
+  .node {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .label {
+    padding: 6px 6px 6px 12px;
+    font-size: 13px;
+  }
+
+  .more {
+    padding: 6px 14px;
+  }
+}

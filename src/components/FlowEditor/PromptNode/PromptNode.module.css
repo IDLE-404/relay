@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--agent-data);
+  border-radius: 8px;
+  background: var(--surface-card);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  resize: none;
+  outline: none;
+}
+
+.handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* base.css (unlike style.css) leaves handles square */
+  border: 2px solid var(--surface-card);
+  background: var(--color-accent);
+}

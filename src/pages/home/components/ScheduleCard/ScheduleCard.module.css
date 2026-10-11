@@ -1,0 +1,147 @@
+.schedule {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.today {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.timeline {
+  position: relative;
+  flex: 1;
+  min-height: 200px;
+  margin: 28px 8px 0;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.tickLabel {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  transform: translateX(-50%);
+}
+
+.nowLayer {
+  position: absolute;
+  inset: 0;
+  transition: transform 1s linear;
+  pointer-events: none;
+}
+
+.now {
+  position: absolute;
+  top: -4px;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--agent-data);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--agent-data);
+  }
+}
+
+.slot {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Opaque card underlay with the agent tint on top, so the "now" line doesn't show through. */
+.pill {
+  padding: 4px 10px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-card);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}
+
+/* The last run sits near the right edge, so its popover opens to the left. */
+.popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 3;
+  min-width: 160px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-md);
+  font-size: 12px;
+  animation: fadeIn 0.2s ease both;
+}
+
+.slot:last-child .popover {
+  right: 0;
+  left: auto;
+}
+
+.popAgent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+
+  i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+}
+
+.popLabel {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.popServers {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nowLayer {
+    transition: none;
+  }
+}

@@ -1,0 +1,44 @@
+.node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 18px 0 10px;
+  border: 1px solid var(--canvas-line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-md);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 18px;
+}
+
+/* Reveals the text letter by letter. The component is remounted every loop. */
+.typing {
+  animation: type 1.6s steps(36) both 0.2s;
+}
+
+@keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}

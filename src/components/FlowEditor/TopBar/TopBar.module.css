@@ -1,0 +1,135 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-card);
+}
+
+.template {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.views {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  button[aria-pressed='true'] {
+    background: var(--surface-card);
+    box-shadow: var(--shadow-sm);
+    color: var(--text);
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--agent-data);
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.icon {
+  display: flex;
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--surface-inset);
+    color: var(--text);
+    outline: none;
+  }
+}
+
+.search {
+  width: 160px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--agent-data);
+  }
+}
+
+.stack {
+  display: flex;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-left: -6px;
+    border: 2px solid var(--surface-card);
+    border-radius: 50%;
+    color: var(--text-inverse);
+    font-size: 11px;
+  }
+}
+
+.reset {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--text);
+    outline: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .bar {
+    flex-wrap: wrap;
+  }
+
+  .template,
+  .stack,
+  .views span {
+    display: none;
+  }
+}

@@ -1,0 +1,76 @@
+.label {
+  position: absolute;
+  top: 62px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.selection {
+  position: absolute;
+  top: 92px;
+  left: 60px;
+  width: 1170px;
+  height: 548px;
+  border: 2px solid var(--agent-data);
+  pointer-events: none;
+
+  i {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid var(--agent-data);
+    background: var(--surface-card);
+  }
+
+  i:nth-child(1) {
+    top: -5px;
+    left: -5px;
+  }
+
+  i:nth-child(2) {
+    top: -5px;
+    right: -5px;
+  }
+
+  i:nth-child(3) {
+    bottom: -5px;
+    left: -5px;
+  }
+
+  i:nth-child(4) {
+    right: -5px;
+    bottom: -5px;
+  }
+}
+
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  pointer-events: none;
+  transition: transform 1s var(--ease);
+}
+
+.pointer {
+  display: block;
+  color: var(--agent-docs);
+  font-size: 22px;
+  fill: var(--agent-docs);
+}
+
+.name {
+  display: inline-block;
+  margin: 2px 0 0 14px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--agent-docs);
+  color: var(--text-inverse);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}

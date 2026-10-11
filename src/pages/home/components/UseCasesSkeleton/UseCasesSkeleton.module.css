@@ -1,0 +1,57 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 96px 40px;
+}
+
+.tag,
+.title,
+.text,
+.frame {
+  display: block;
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.tag {
+  width: 90px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+}
+
+.title {
+  width: min(420px, 80%);
+  height: 48px;
+}
+
+.text {
+  width: min(560px, 90%);
+  height: 20px;
+}
+
+.frame {
+  height: 680px;
+  margin-top: 28px;
+  border-radius: 28px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 899px) {
+  .section {
+    padding: 64px 16px;
+  }
+
+  .frame {
+    height: 480px;
+  }
+}

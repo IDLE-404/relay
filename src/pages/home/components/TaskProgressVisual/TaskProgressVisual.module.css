@@ -1,0 +1,94 @@
+.visual {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.call {
+  color: var(--text-muted);
+}
+
+.track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+}
+
+/* scaleX, not width, so only transform animates. 4s loop: fill for 3s, hold 1s. */
+.bar {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--agent-data);
+  transform-origin: left;
+  animation: fill 4s var(--ease) infinite;
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0.05);
+  }
+
+  75%,
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Both chips sit in the same spot and swap with opacity. */
+.chips {
+  display: grid;
+}
+
+.chip {
+  grid-area: 1 / 1;
+  justify-self: start;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.working {
+  background: var(--agent-data-soft);
+  color: var(--agent-data);
+  animation: first 4s step-end infinite;
+}
+
+.completed {
+  background: var(--success-soft);
+  color: var(--success);
+  animation: second 4s step-end infinite;
+}
+
+@keyframes first {
+  75% {
+    opacity: 0;
+  }
+}
+
+@keyframes second {
+  from {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+}
+
+/* No motion: the finished state. */
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transform: none;
+  }
+
+  .working {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,130 @@
+/* Four blocks spread over the card height, so there are no big gaps. */
+.run {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.agent,
+.calls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.agent i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.calls {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.title {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.timer {
+  font-family: var(--font-mono);
+  font-size: clamp(36px, 4vw, 48px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.bar {
+  display: flex;
+  gap: 4px;
+}
+
+.segment {
+  position: relative;
+  min-width: 0;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+
+  /* Tooltip on hover and keyboard focus. */
+  &:hover::after,
+  &:focus-visible::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    z-index: 2;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--text);
+    color: var(--text-inverse);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    white-space: nowrap;
+    transform: translateX(-50%);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  i {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+}
+
+.tool {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ms {
+  color: var(--text-muted);
+}
+
+.ok {
+  color: var(--success);
+}

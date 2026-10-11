@@ -1,0 +1,89 @@
+.challenges {
+  display: grid;
+  grid-template-columns: minmax(0, 38fr) minmax(0, 62fr);
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 40px;
+}
+
+/* Stretches to the height of the rows column. */
+.cover {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-lg) * 2);
+  background: var(--surface-inset);
+  isolation: isolate;
+}
+
+/* Dot flower: the image is a mask, the colour is the token. Dense areas come out darker. */
+.image {
+  position: absolute;
+  inset: 26% 8% 6%;
+  background: var(--text-muted);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.title {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  right: 32px;
+  z-index: 1;
+  color: var(--text);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+
+  em {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+/* One soft tint drifting behind the flower. */
+.blob {
+  position: absolute;
+  right: -20%;
+  bottom: -20%;
+  z-index: -1;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-blob-pink);
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(-18%, -12%);
+  }
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 899px) {
+  .challenges {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 48px 16px;
+  }
+
+  .cover {
+    aspect-ratio: 4 / 3;
+  }
+
+  .image {
+    top: 42%;
+    bottom: 4%;
+  }
+}

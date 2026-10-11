@@ -1,0 +1,164 @@
+.window {
+  overflow: hidden;
+  border: 1px solid var(--color-window-border);
+  border-radius: 14px;
+  background: var(--color-window-bg);
+  box-shadow: var(--shadow-window);
+  transition: transform 0.4s var(--ease);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 12px 0 14px;
+  border-bottom: 1px solid var(--color-window-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Each dot is colored; a gray layer on top fades out on hover. */
+.dots {
+  display: flex;
+  gap: 7px;
+
+  i {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--border-strong);
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  i:nth-child(1) {
+    background: var(--window-red);
+  }
+
+  i:nth-child(2) {
+    background: var(--window-yellow);
+  }
+
+  i:nth-child(3) {
+    background: var(--window-green);
+  }
+}
+
+.titlebar:hover .dots i::after {
+  opacity: 0;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatars {
+  display: flex;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-left: -6px;
+    border: 2px solid var(--color-window-bg);
+    border-radius: 50%;
+    color: var(--text-inverse);
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  span:nth-child(1) {
+    background: var(--agent-docs);
+  }
+
+  span:nth-child(2) {
+    background: var(--agent-data);
+  }
+
+  span:nth-child(3) {
+    background: var(--agent-telegram);
+  }
+}
+
+.share {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.body {
+  display: flex;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  padding-top: 10px;
+  border-right: 1px solid var(--color-window-border);
+}
+
+.tool,
+.toolActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.toolActive {
+  background: var(--agent-data);
+  color: var(--text-inverse);
+}
+
+/* FlowCanvas is drawn at 1280x800, so the screen keeps the same 16:10 ratio. */
+.screen {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 16 / 10;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .toolbar,
+  .avatars,
+  .title {
+    display: none;
+  }
+}

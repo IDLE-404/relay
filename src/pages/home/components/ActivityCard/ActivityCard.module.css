@@ -1,0 +1,52 @@
+.activity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.stats {
+  display: flex;
+  gap: 32px;
+
+  p {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: clamp(28px, 3vw, 36px);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.caption {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile: heatmap on top, radar below. */
+@media (max-width: 899px) {
+  .activity {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,90 @@
+.radar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Fills the right half of the wide card. */
+.svg {
+  width: 100%;
+  max-width: 420px;
+  overflow: visible;
+}
+
+.grid {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.active,
+.previous,
+.hidden {
+  transition: opacity 0.5s ease;
+}
+
+.active {
+  fill-opacity: 0.15;
+  stroke-width: 2;
+  opacity: 1;
+}
+
+.previous {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-dasharray: 4 4;
+  opacity: 0.4;
+}
+
+.hidden {
+  fill: none;
+  stroke: none;
+  opacity: 0;
+}
+
+.label {
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+
+  i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  &[aria-pressed='true'] {
+    border-color: transparent;
+  }
+
+  &:hover {
+    color: var(--text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}

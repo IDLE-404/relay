@@ -1,0 +1,49 @@
+.section {
+  width: 100%; /* the page is a flex column; auto margins alone would shrink it */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 96px 40px;
+}
+
+.head {
+  max-width: 620px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.title {
+  margin-top: 12px;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+
+  em {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+.text {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.editor {
+  margin-top: 40px;
+}
+
+@media (max-width: 899px) {
+  .section {
+    padding: 64px 16px;
+  }
+}

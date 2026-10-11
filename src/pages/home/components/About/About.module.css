@@ -1,0 +1,63 @@
+.about {
+  position: relative;
+  isolation: isolate;
+  padding: 96px 40px;
+  overflow: hidden;
+
+  /* Faint grid that fades out towards the edges. */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 48px 48px,
+      linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 48px 48px;
+    mask-image: radial-gradient(60% 60% at 50% 50%, #000, transparent);
+    opacity: 0.6;
+  }
+
+  em {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+.head {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  margin-top: 28px;
+}
+
+.caption {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.explainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+@media (max-width: 767px) {
+  .about {
+    padding: 64px 16px;
+  }
+
+  .explainer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+}

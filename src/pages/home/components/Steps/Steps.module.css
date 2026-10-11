@@ -1,0 +1,171 @@
+/* Desktop: 300vh of scroll while the content stays pinned. */
+.steps {
+  height: 300vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1180px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 88px 40px 32px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.title {
+  margin-top: 12px;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+
+  em {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+  align-items: center;
+  gap: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 16px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  color: var(--text);
+  text-align: left;
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.active,
+.active:hover {
+  opacity: 1;
+}
+
+.number {
+  grid-row: span 2;
+  font-family: var(--font-display);
+  width: 1.3em; /* same width for every number, so titles line up */
+  font-size: 32px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.active .number {
+  color: var(--color-accent);
+}
+
+.stepTitle {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.text {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.mobileResult {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step {
+    opacity: 1;
+  }
+}
+
+/* Mobile: a plain list with a line on the left that leads into the result card. */
+@media (max-width: 899px) {
+  .steps {
+    height: auto;
+  }
+
+  .sticky {
+    position: static;
+    height: auto;
+    padding: 64px 16px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .diagram {
+    display: none;
+  }
+
+  .list {
+    position: relative;
+    gap: 0;
+    padding-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      background: var(--border-strong);
+    }
+  }
+
+  .step {
+    padding: 14px 0;
+    opacity: 1;
+  }
+
+  .number {
+    color: var(--color-accent);
+    font-size: 24px;
+  }
+
+  .mobileResult {
+    display: block;
+    padding: 14px 16px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    background: var(--surface-card);
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

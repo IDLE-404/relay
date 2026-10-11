@@ -1,0 +1,55 @@
+.panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 28px;
+  background: var(--surface-inset);
+  pointer-events: none;
+}
+
+.blobYellow,
+.blobPink {
+  position: absolute;
+  z-index: -1;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.7;
+}
+
+.blobYellow {
+  top: -10%;
+  left: -10%;
+  background: var(--color-blob-yellow);
+}
+
+.blobPink {
+  right: -10%;
+  bottom: -10%;
+  background: var(--color-blob-pink);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 260px);
+  gap: 16px;
+}
+
+/* Same look as the console preview cards, at a smaller size. */
+.card {
+  height: 310px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+}
+
+.offset {
+  transform: translateY(40px);
+}

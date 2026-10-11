@@ -1,0 +1,28 @@
+.region {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast {
+  display: block;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--text);
+  box-shadow: var(--shadow-md);
+  color: var(--text-inverse);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: toastIn 0.3s var(--ease) both;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

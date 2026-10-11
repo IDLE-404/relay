@@ -1,0 +1,63 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 160px 16px 80px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--surface-page);
+  text-align: center;
+}
+
+.blob {
+  position: absolute;
+  top: 10%;
+  z-index: -1;
+  width: min(560px, 90vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-blob-yellow), transparent 65%);
+  opacity: 0.7;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+
+  em {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+.text {
+  max-width: 460px;
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.back {
+  margin-top: 28px;
+  padding: 10px 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    border-color: var(--text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--agent-data);
+    outline-offset: 2px;
+  }
+}

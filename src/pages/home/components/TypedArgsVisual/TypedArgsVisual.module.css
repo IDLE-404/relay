@@ -1,0 +1,35 @@
+.visual {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+
+  code {
+    font-family: inherit;
+  }
+}
+
+.bad svg {
+  color: var(--danger);
+}
+
+.good svg {
+  color: var(--success);
+}
+
+.wrong {
+  text-decoration: underline wavy var(--danger);
+  text-underline-offset: 3px;
+}
+
+.note {
+  color: var(--danger);
+}

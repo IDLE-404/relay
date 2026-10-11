@@ -1,0 +1,76 @@
+/* Light theme only. Components use these semantic tokens, never raw colour values. */
+:root {
+  /* Surfaces */
+  --surface-page: #f3f3f1;
+  --surface-card: #ffffff;
+  --surface-inset: #f6f5f2;
+
+  /* Lines */
+  --border: #e7e5e0;
+  --border-strong: #d6d3cc;
+
+  /* Text (all pass 4.5:1 on the surfaces above) */
+  --text: #1a1a1a;
+  --text-muted: #6b6b66;
+  --text-inverse: #ffffff;
+
+  /* Agents. Telegram darkened from #0b8fae to reach 4.5:1 as text. */
+  --agent-docs: #6d4fe0;
+  --agent-data: #2f5bff;
+  --agent-telegram: #09758f;
+  --agent-docs-soft: rgb(109 79 224 / 10%);
+  --agent-data-soft: rgb(47 91 255 / 10%);
+  --agent-telegram-soft: rgb(9 117 143 / 10%);
+
+  /* Status. Darkened from #12a150 / #c27c0e / #e5484d to reach 4.5:1 as text. */
+  --success: #0e7c3e;
+  --warning: #97610b;
+  --danger: #d01e23;
+  --success-soft: rgb(14 124 62 / 10%);
+  --warning-soft: rgb(151 97 11 / 10%);
+  --danger-soft: rgb(208 30 35 / 10%);
+
+  /* Brand. Accent darkened from #f2662a to reach 4.5:1 as text. */
+  --color-primary: #0a0a0a;
+  --color-primary-hover: #262626;
+  --color-accent: #bf410c;
+  --color-accent-soft: rgb(191 65 12 / 10%);
+  --color-blob-yellow: #fbefa8;
+  --color-blob-pink: #f5cfee;
+
+  /* Hero canvas (Figma-like warm board) */
+  --canvas-bg: #f1ede5; /* lightened from #e9e2d6 so --text-muted reaches 4.5:1 */
+  --canvas-dot: #c9bfae;
+  --canvas-chip: #f7f3ec;
+  --canvas-line: rgb(120 100 70 / 20%);
+
+  /* App window frame and chat preview */
+  --window-red: #ff5f57;
+  --window-yellow: #febc2e;
+  --window-green: #28c840;
+  --color-window-bg: #fbfaf8;
+  --color-window-border: rgb(28 25 23 / 10%);
+  --chat-bg: #e8eef2; /* lightened from #dde6ec so --text-muted reaches 4.5:1 */
+  --chat-user: #e3f8d2;
+
+  /* Shape and motion */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(26 26 26 / 6%);
+  --shadow-md: 0 4px 12px rgb(26 26 26 / 10%);
+  --shadow-card: 0 1px 2px rgb(26 26 26 / 4%), 0 6px 20px -8px rgb(26 26 26 / 8%);
+  --shadow-window:
+    0 1px 2px rgb(28 25 23 / 4%),
+    0 12px 32px -8px rgb(28 25 23 / 10%),
+    0 48px 96px -24px rgb(28 25 23 / 18%);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Fonts */
+  /* Geist covers Latin and Cyrillic, so one family does body and headings. */
+  --font: 'Geist', 'Geist Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}

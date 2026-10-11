@@ -1,0 +1,59 @@
+/* The cell carries data-reveal; the card inside carries the hover lift, so the transforms don't fight. */
+.cell {
+  aspect-ratio: 1;
+}
+
+.wide {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+  color: var(--text);
+  transition:
+    transform 0.3s var(--ease),
+    border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+}
+
+.link {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  &:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}
+
+/* Clicks on plain content fall through to the link; interactive children take them. */
+.content {
+  position: relative;
+  height: 100%;
+  padding: 24px;
+  pointer-events: none;
+
+  :is(button, [tabindex]) {
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 899px) {
+  .cell,
+  .wide {
+    grid-column: auto;
+    aspect-ratio: auto;
+  }
+}

@@ -1,0 +1,53 @@
+.terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.bar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 4px;
+
+  i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+}
+
+.out {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.in {
+  color: var(--success);
+}
+
+.arrow {
+  color: var(--text-muted);
+}
+
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  margin-left: 4px;
+  background: var(--text);
+  vertical-align: -2px;
+  animation: blink 1s steps(2, jump-none) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

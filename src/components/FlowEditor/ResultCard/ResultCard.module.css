@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  gap: 10px;
+  max-width: 360px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px 16px 16px 4px;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-md);
+  animation: slideIn 0.35s var(--ease) both;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--agent-telegram);
+  color: var(--text-inverse);
+  font-size: 15px;
+}
+
+.name {
+  color: var(--agent-telegram);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.message {
+  font-size: 13px;
+}
+
+.cancelled {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.summary {
+  margin-top: 2px;
+  color: var(--success);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}

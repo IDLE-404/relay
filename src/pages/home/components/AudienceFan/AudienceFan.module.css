@@ -1,0 +1,142 @@
+.fan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.glow {
+  position: absolute;
+  top: -28px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-soft), transparent 70%);
+}
+
+.dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 5px var(--color-accent-soft);
+}
+
+.label {
+  position: relative;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* pathLength=1: the draw-in runs from 1 to 0 once the section is revealed, and again on every switch (remount). */
+.paths {
+  width: 100%;
+  height: 120px;
+  margin-top: -6px;
+}
+
+.path {
+  fill: none;
+  stroke-width: 1.5;
+  /* No non-scaling-stroke here: with pathLength=1 it breaks the dash maths in Firefox and cuts long paths short. */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+:global(.visible) .path {
+  animation: draw 1.2s var(--ease) both;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+.path.active {
+  opacity: 1;
+  stroke-width: 2.5;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: 100%;
+  margin-top: -2px; /* paths end right at the icon tops */
+  list-style: none;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  outline: none;
+  cursor: default;
+
+  &:focus-visible .icon {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 6px;
+  border-radius: 14px;
+  font-size: 22px;
+  transition: transform 0.25s var(--ease);
+}
+
+.tile.active .icon {
+  transform: translateY(-3px);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.caption {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Mobile: tiles scroll sideways, no paths. */
+@media (max-width: 899px) {
+  .paths,
+  .center {
+    display: none;
+  }
+
+  .tiles {
+    display: flex;
+    gap: 12px;
+    margin: 0 -16px;
+    padding: 4px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tile {
+    flex: 0 0 130px;
+  }
+}

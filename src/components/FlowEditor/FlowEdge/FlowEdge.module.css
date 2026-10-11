@@ -1,0 +1,65 @@
+.edge {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+
+.dashed {
+  stroke-dasharray: 6 5;
+}
+
+.active {
+  stroke: var(--agent-data);
+}
+
+.dot {
+  fill: var(--agent-data);
+}
+
+.label {
+  position: absolute;
+  pointer-events: all;
+}
+
+.more,
+.text {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.more {
+  position: relative;
+  padding: 0 7px;
+  line-height: 16px;
+  cursor: pointer;
+
+  /* Tooltip on hover and keyboard focus. */
+  &:hover::after,
+  &:focus-visible::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    z-index: 10;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--text);
+    color: var(--text-inverse);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    transform: translateX(-50%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--agent-data);
+  }
+}
+
+.text {
+  display: block;
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
